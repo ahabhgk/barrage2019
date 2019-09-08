@@ -86,21 +86,56 @@ const INTERVALTIME = 100
 
 const fakeBadUsernames = [
   'ahabhgk',
-  'dsdad',
-  'sfsgdsgdsg',
-  'afdfsdgfg',
-  'rwtfxb',
-  'dsv',
-  '324',
-  'gdg',
-  '245dsf',
-  'sdafeet',
-  '3764uj',
-  'vcxb',
-  'wetrw',
+  'sajo',
+  'sudo rm -rf /*',
+  '仰望',
+  '锅',
+  '孤雏',
+  'Nickdue',
+  'ShallowDream',
+  '复读机',
+  '封瑟',
+  'Ryan',
+  '青山',
+  '瞳根',
+  '还原型辅酶Ⅱ',
+  '风华学月wsm',
+  '℡★魅G↘纷飛',
+  '枉久',
+  'Neko',
+  'Deep memory',
+  'flower',
+  '黑白先生',
+  'Huayra的轮胎',
+  'Isolation',
+  '霜天に坐せ',
+  '君爱卿',
+  'Kirito',
+  'Kennard',
+  'lyna tlncgbnn',
+  'Los Unidades',
+  'Phosphorite',
+  '青笙挽歌',
+  '柒千零四十五',
+  '浅夏_流年',
+  '前世迟来者.',
+  '逝风而去',
 ]
 
-const showLucky = (luckyUsers, badUsernames = fakeBadUsernames) => {
+function shuffle(arr) {
+  var input = [...arr];
+
+  for (var i = input.length-1; i >=0; i--) {
+    var randomIndex = Math.floor(Math.random()*(i+1));
+    var itemAtIndex = input[randomIndex];
+
+    input[randomIndex] = input[i];
+    input[i] = itemAtIndex;
+  }
+  return input;
+}
+
+const showLucky = (luckyUsers, badUsernames = shuffle(fakeBadUsernames)) => {
   console.log(luckyUsers)
   luckyWrapper.innerHTML = luckyUsers.map(() => `
     <div class="lucky-info">

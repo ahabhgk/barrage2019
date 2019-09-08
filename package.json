@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev:send": "parcel send/index.html",
-    "build:send": "parcel build send/index.html",
+    "build:send": "parcel build send/index.html --public-url ./",
     "dev:screen": "parcel screen/index.html",
-    "build:screen": "parcel build screen/index.html"
+    "build:screen": "parcel build screen/index.html --public-url ./"
   },
   "author": "ahabhgk",
   "license": "MIT",
