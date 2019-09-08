@@ -38,6 +38,10 @@
   margin: 4vw auto 0;
 }
 
+#color {
+  border: 1px solid #000;
+}
+
 .diolog {
   display: none;
   position: absolute;
