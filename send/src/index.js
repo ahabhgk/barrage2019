@@ -1,16 +1,18 @@
 import './css.css'
 import "regenerator-runtime/runtime"
 
+const API = 'https://wx.redrock.team/wxapi/barrage/'
+
 // token 检测
 function checkToken() {
-  var jwt = localStorage.getItem('token')
+  var jwt = localStorage.getItem('barrage-token')
   if (jwt) {
     if (location.href.split('?').length > 1) {
       var params = location.href.split('?')[1].split('&')
       for (var i = 0; i < params.length; i++) {
         if (params[i].indexOf('token') > -1) {
           jwt = params[i].replace('token=', '')
-          localStorage.setItem('token', jwt)
+          localStorage.setItem('barrage-token', jwt)
           var realUrl = location.href.split('?')[0]
           console.log(realUrl)
           location.href = realUrl
@@ -25,7 +27,7 @@ function checkToken() {
       for (var i = 0; i < params.length; i++) {
         if (params[i].indexOf('token') > -1) {
           jwt = params[i].replace('token=', '')
-          localStorage.setItem('token', jwt)
+          localStorage.setItem('barrage-token', jwt)
           var realUrl = location.href.split('?')[0]
           console.log(realUrl)
           location.href = realUrl
@@ -34,7 +36,7 @@ function checkToken() {
       }
     }
   }
-  var rushbUrl = encodeURI('https://wx.redrock.team/234/barrage/user/enter')
+  var rushbUrl = encodeURI('https://wx.redrock.team/game/barrage2019/')
   location.href = 'https://wx.redrock.team/magicloop/rushb?b=' + rushbUrl + '&scope=student'
 }
 checkToken()
@@ -62,10 +64,11 @@ send.addEventListener('click', async e => {
   }
 
   try {
-    const res = await fetch(`https://wx.redrock.team/234/barrage/user/barrage?token=${localStorage.getItem('token')}`, {
+    const res = await fetch(`${API}/user/barrage`, {
       method: 'POST',
       headers: new Headers({
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('barrage-token')}`
       }),
       body: JSON.stringify({
         text,

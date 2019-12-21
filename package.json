@@ -7,7 +7,8 @@
     "dev:send": "parcel send/index.html",
     "build:send": "parcel build send/index.html --public-url ./",
     "dev:screen": "parcel screen/index.html",
-    "build:screen": "parcel build screen/index.html --public-url ./"
+    "build:screen": "parcel build screen/index.html --public-url ./",
+    "deploy": "sh ./deploy.sh"
   },
   "author": "ahabhgk",
   "license": "MIT",

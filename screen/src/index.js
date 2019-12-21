@@ -120,6 +120,7 @@ const fakeBadUsernames = [
   '浅夏_流年',
   '前世迟来者.',
   '逝风而去',
+  'Even You',
 ]
 
 function shuffle(arr) {
@@ -166,40 +167,7 @@ const showLucky = (luckyUsers, badUsernames = shuffle(fakeBadUsernames)) => {
   }, TIMEOUTTIME)
 }
 
-// showLucky([
-//   {
-//   "headImgUrl": "http://thirdwx.qlogo.cn/mmopen/vi_32/fc1qqUhicx1LZvg4YZ71JTOiby0QQibUz7ibAXuwpVfsZzTHiamjTADyUjx2aHq0MrEM0ZmEB34yUagUeiadJq9ibk4SA/132",
-//   "nickname": "余歌",
-//   "redid": "5be0af71e5831e4532c3909d2983fba03c833568"
-//   },
-//   {
-//   "headImgUrl": "http://thirdwx.qlogo.cn/mmopen/vi_32/fc1qqUhicx1LZvg4YZ71JTOiby0QQibUz7ibAXuwpVfsZzTHiamjTADyUjx2aHq0MrEM0ZmEB34yUagUeiadJq9ibk4SA/132",
-//   "nickname": "余歌",
-//   "redid": "5be0af71e5831e4532c3909d2983fba03c833568"
-//   },
-//   {
-//   "headImgUrl": "http://thirdwx.qlogo.cn/mmopen/vi_32/fc1qqUhicx1LZvg4YZ71JTOiby0QQibUz7ibAXuwpVfsZzTHiamjTADyUjx2aHq0MrEM0ZmEB34yUagUeiadJq9ibk4SA/132",
-//   "nickname": "余歌",
-//   "redid": "5be0af71e5831e4532c3909d2983fba03c833568"
-//   },
-// ], [
-//   'ahabhgk',
-//   'dsdad',
-//   'sfsgdsgdsg',
-//   'afdfsdgfg',
-//   'rwtfxb',
-//   'dsv',
-//   '324',
-//   'gdg',
-//   '245dsf',
-//   'sdafeet',
-//   '3764uj',
-//   'vcxb',
-//   'wetrw',
-// ])
-
-
-const ws = new WebSocket('wss://hongyan.cqupt.edu.cn/barrage/screen/barrage')
+const ws = new WebSocket('wss://wx.redrock.team/wxapi/barrage/screen/barrage')
 
 ws.onopen = e => {
   console.log("Connection open ...")
