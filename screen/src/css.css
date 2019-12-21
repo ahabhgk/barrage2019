@@ -6,6 +6,9 @@
 
 body {
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .screen {
@@ -17,12 +20,6 @@ body {
 .lucky {
   display: none;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: fit-content;
-  min-height: 30vw;
   background: #fff;
   margin: auto;
   border-radius: 3vw;
@@ -30,7 +27,9 @@ body {
 
 .lucky-wrapper {
   width: fit-content;
+  max-width: 96vw;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .lucky-info {
