@@ -5,39 +5,14 @@ const API = 'https://wx.redrock.team/wxapi/barrage/'
 
 // token 检测
 function checkToken() {
-  var jwt = localStorage.getItem('barrage-token')
-  if (jwt) {
-    if (location.href.split('?').length > 1) {
-      var params = location.href.split('?')[1].split('&')
-      for (var i = 0; i < params.length; i++) {
-        if (params[i].indexOf('token') > -1) {
-          jwt = params[i].replace('token=', '')
-          localStorage.setItem('barrage-token', jwt)
-          var realUrl = location.href.split('?')[0]
-          console.log(realUrl)
-          location.href = realUrl
-          return
-        }
-      }
-    }
-    return
+  const token = location.href.split('?token=')[1]
+  if (token) {
+    fetch(`${API}/user/enter?token=${token}`)
+    sessionStorage.setItem('barrage-token', token)
   } else {
-    if (location.href.split('?').length > 1) {
-      var params = location.href.split('?')[1].split('&')
-      for (var i = 0; i < params.length; i++) {
-        if (params[i].indexOf('token') > -1) {
-          jwt = params[i].replace('token=', '')
-          localStorage.setItem('barrage-token', jwt)
-          var realUrl = location.href.split('?')[0]
-          console.log(realUrl)
-          location.href = realUrl
-          return
-        }
-      }
-    }
+    var rushbUrl = encodeURI('https://wx.redrock.team/game/barrage2019/')
+    location.href = 'https://wx.redrock.team/magicloop/rushb?b=' + rushbUrl + '&scope=student'
   }
-  var rushbUrl = encodeURI('https://wx.redrock.team/game/barrage2019/')
-  location.href = 'https://wx.redrock.team/magicloop/rushb?b=' + rushbUrl + '&scope=student'
 }
 checkToken()
 
@@ -55,6 +30,7 @@ const showTip = err => {
 }
 
 send.addEventListener('click', async e => {
+  console.log(e)
   const text = input.value
   const color = colorSelector.value
 
@@ -68,7 +44,7 @@ send.addEventListener('click', async e => {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('barrage-token')}`
+        'Authorization': `Bearer ${sessionStorage.getItem('barrage-token')}`
       }),
       body: JSON.stringify({
         text,
